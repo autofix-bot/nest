@@ -48,7 +48,7 @@ jobs:
       - run:
           name: Build
           command: npm run build
-        
+
   test_node_12:
     <<: *unit-tests-template
     docker:
@@ -58,7 +58,7 @@ jobs:
     <<: *unit-tests-template
     docker:
       - image: circleci/node:14
-    
+
   test_node_16:
     working_directory: ~/nest
     docker:
@@ -97,12 +97,12 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: 
+      - run:
           name: Prepare nvm
           command: |
             echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
             echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
-      - run: 
+      - run:
           name: Upgrade Node.js
           command: |
             nvm install v12
@@ -126,7 +126,7 @@ jobs:
       - run:
           name: Integration tests
           command: npm run test:integration
-          
+
   codechecks_benchmarks:
     working_directory: ~/nest
     docker:
